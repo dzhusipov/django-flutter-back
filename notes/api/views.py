@@ -1,10 +1,10 @@
 #from django.shortcuts import render
 
 # Create your views here.
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
 
-import re
-from django.http import JsonResponse
-
+@api_view(['GET'])
 def getRoutes(request):
     routes = [
         {
@@ -38,5 +38,4 @@ def getRoutes(request):
             'description': 'Delete a note with the given id.',
         }, 
     ]
-
-    return JsonResponse(routes, safe=False)
+    return Response(routes)
